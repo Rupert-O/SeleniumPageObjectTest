@@ -28,7 +28,6 @@ public class LoginPage extends BasePage {
     protected WebElement logInButton;
 
 
-
     @Override
     public void waitForPageToBeLoaded() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
@@ -47,20 +46,6 @@ public class LoginPage extends BasePage {
     public void clickLoginButton(){
         logInButton.click();
     }
-
-//    public LoginPage unsuccessfulLogin(String email, String password) {
-//        driver.findElement(emailInputBy).sendKeys(email);
-//        driver.findElement(passwordInputBy).sendKeys(password);
-//        driver.findElement(signInButtonBy).click();
-//        return this;
-//    }
-
-//    public LoginPage logIn(String login, String password) {
-//        loginInput.sendKeys(login);
-//        passwordInput.sendKeys(password);
-//        logInButton.click();
-//        return new LoginPage(driver);
-//    }
 
 //    public String getErrorMessage() {
 //        return driver.findElement(errorTextBy).getText();
