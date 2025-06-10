@@ -8,10 +8,8 @@ import org.testng.annotations.BeforeClass;
 
 public class BaseTest {
     WebDriver driver;
-    //WebDriver wait;
     @BeforeClass
     public void setup(){
-        System.out.println(">>>SETIP START");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");// Bypass OS security model
         options.addArguments("--disable-dev-shm-usage");// overcome limited resource problems
