@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 public class TopNavigationBarPage extends BasePage{
 
@@ -20,6 +21,12 @@ public class TopNavigationBarPage extends BasePage{
 
     @FindBy(xpath = "//header[@id=\"header\"]//div[@class=\"h-quick-search-dropdown\"]//button[@id=\"d\"]")
     private WebElement searchCategoriesDropdownButton;
+
+    @FindBy(xpath = "//header//ul[@class= \"md-list-collection\"]")
+    private List<WebElement> categoriesList;
+
+    @FindBy(xpath = "//header//button[@type=\"submit\"]")
+    private WebElement searchButton;
 
     @FindBy(xpath = "//div[@class=\"h-controls\"]//button[@data-ask-widget=\"help-center\"]")
     private WebElement contactButton;
@@ -38,5 +45,14 @@ public class TopNavigationBarPage extends BasePage{
     }
     public void clickshoppingListButton(){
         shoppingListButton.click();
+    }
+    public void clickSearchCategoriesDropdownButton(){
+        searchCategoriesDropdownButton.click();
+    }
+    public void insertStringToSearchInput(String searchString){
+        searchInput.sendKeys(searchString);
+    }
+    public void clickSearchButton(){
+        searchButton.click();
     }
 }

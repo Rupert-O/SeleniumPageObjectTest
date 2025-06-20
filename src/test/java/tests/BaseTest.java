@@ -22,6 +22,8 @@ public class BaseTest {
 
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
+        driver.get("https://www.morele.net/");
+
     }
     @AfterClass
     public void teardown(){

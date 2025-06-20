@@ -14,7 +14,7 @@ public class AcceptCookiesPage extends BasePage{
     public AcceptCookiesPage(WebDriver driver){
         super(driver);
     }
-    private String pageUrl = "https://www.morele.net";
+//    private String pageUrl = "https://www.morele.net";
 
     @FindBy(xpath = "//div[contains(@class, \"actions\")]//button[contains(@data-action, \"onApproveAll\")]")
     protected WebElement acceptAllCookiesButton;
@@ -25,9 +25,9 @@ public class AcceptCookiesPage extends BasePage{
     @FindBy(xpath = "//div[@id=\"cookie-consent\"]")
     public List<WebElement> cookieConsentPopUp;
 
-    public void openPage(){
-        driver.get(pageUrl);
-    }
+//    public void openPage(){
+//        driver.get(pageUrl);
+//    }
     public void clickAcceptAllCookiesButton(){
         acceptAllCookiesButton.click();
     }
