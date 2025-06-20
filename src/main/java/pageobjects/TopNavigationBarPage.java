@@ -49,10 +49,15 @@ public class TopNavigationBarPage extends BasePage{
     public void clickSearchCategoriesDropdownButton(){
         searchCategoriesDropdownButton.click();
     }
-    public void insertStringToSearchInput(String searchString){
-        searchInput.sendKeys(searchString);
+    public void insertStringToSearchInput(String phrase){
+        searchInput.sendKeys(phrase);
     }
     public void clickSearchButton(){
         searchButton.click();
+    }
+    public SearchResultPage searchProduct(String phrase){
+        insertStringToSearchInput(phrase);
+        clickSearchButton();
+        return new SearchResultPage(driver);
     }
 }
