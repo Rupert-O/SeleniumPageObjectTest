@@ -6,6 +6,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import pageobjects.AcceptCookiesPage;
 
 public class BaseTest {
     WebDriver driver;
@@ -29,7 +30,13 @@ public class BaseTest {
     @BeforeMethod
     public void acceptCookies(){
         AcceptCookiesTest cookiesWindow = new AcceptCookiesTest(driver);
-        cookiesWindow.acceptCookies();
+        AcceptCookiesPage test = new AcceptCookiesPage(driver);
+
+            if(test.checkIfPresent()) {
+                cookiesWindow.acceptCookies();
+            }else{
+            System.out.println("No Cookie Pop-Up");
+        }
     }
     @AfterClass
     public void teardown(){

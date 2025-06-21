@@ -17,7 +17,7 @@ public class TopNavigationBarPage extends BasePage{
     }
 
     @FindBy(xpath = "//header[@id=\"header\"]//input[@name=\"q\" and @type=\"search\"]")
-    private WebElement searchInput;
+    public WebElement searchInput;
 
     @FindBy(xpath = "//header[@id=\"header\"]//div[@class=\"h-quick-search-dropdown\"]//button[@id=\"d\"]")
     private WebElement searchCategoriesDropdownButton;

@@ -12,12 +12,13 @@ public class AcceptCookiesTest extends BaseTest{
     public AcceptCookiesTest(WebDriver driver) {
         this.driver = driver;
     }
+
     @Test
     public void acceptCookies(){
         AcceptCookiesPage acceptcookiesPage = new AcceptCookiesPage(driver);
 //        acceptcookiesPage.openPage();
         acceptcookiesPage.waitForPageToBeLoaded();
         acceptcookiesPage.clickAcceptAllCookiesButton();
-        Assert.assertTrue(acceptcookiesPage.cookieConsentPopUp.isEmpty());
+        Assert.assertTrue(!acceptcookiesPage.cookieConsentPopUp.isDisplayed());
     }
 }

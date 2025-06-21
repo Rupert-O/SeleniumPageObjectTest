@@ -23,11 +23,16 @@ public class AcceptCookiesPage extends BasePage{
     protected WebElement displayCookiesManagerButton;
 
     @FindBy(xpath = "//div[@id=\"cookie-consent\"]")
-    public List<WebElement> cookieConsentPopUp;
+    public WebElement cookieConsentPopUp;
 
 //    public void openPage(){
 //        driver.get(pageUrl);
 //    }
+
+    public boolean checkIfPresent(){
+        return cookieConsentPopUp.isDisplayed();
+    }
+
     public void clickAcceptAllCookiesButton(){
         acceptAllCookiesButton.click();
     }

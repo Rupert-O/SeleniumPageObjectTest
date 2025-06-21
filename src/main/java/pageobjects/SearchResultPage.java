@@ -18,6 +18,9 @@ public class SearchResultPage extends BasePage{
     @FindBy(xpath = "//div[@class=\"cat-product card\"]")
     public List<WebElement> products;
 
+    @FindBy(xpath = "//div[@class=\"cat-list-products\"]/div[@class = \"card cat-list-empty\"]")
+    public WebElement noProductMessage;
+
     @Override
     public void waitForPageToBeLoaded(){
         new WebDriverWait(driver, Duration.ofSeconds(20))
