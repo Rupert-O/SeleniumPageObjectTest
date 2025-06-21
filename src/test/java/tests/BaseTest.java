@@ -5,6 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 
 public class BaseTest {
     WebDriver driver;
@@ -23,7 +24,12 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         driver.get("https://www.morele.net/");
+    }
 
+    @BeforeMethod
+    public void acceptCookies(){
+        AcceptCookiesTest cookiesWindow = new AcceptCookiesTest(driver);
+        cookiesWindow.acceptCookies();
     }
     @AfterClass
     public void teardown(){

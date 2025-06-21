@@ -43,7 +43,7 @@ public class TopNavigationBarPage extends BasePage{
     public void clickContactButton(){
         contactButton.click();
     }
-    public void clickshoppingListButton(){
+    public void clickShoppingListButton(){
         shoppingListButton.click();
     }
     public void clickSearchCategoriesDropdownButton(){

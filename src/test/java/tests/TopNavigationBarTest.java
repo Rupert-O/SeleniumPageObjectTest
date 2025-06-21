@@ -12,7 +12,7 @@ public class TopNavigationBarTest extends BaseTest{
         TopNavigationBarPage topNavigationBarPage = new TopNavigationBarPage(driver);
         topNavigationBarPage.searchProduct("iPhone");
         SearchResultPage tst = new SearchResultPage(driver);
-        Assert.assertTrue(!tst.products.isEmpty());
+        Assert.assertFalse(tst.products.isEmpty());
 
     }
 }

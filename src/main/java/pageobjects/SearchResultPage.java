@@ -15,7 +15,7 @@ public class SearchResultPage extends BasePage{
         super(driver);
     }
 
-    @FindBy(className = "cat-product")
+    @FindBy(xpath = "//div[@class=\"cat-product card\"]")
     public List<WebElement> products;
 
     @Override
