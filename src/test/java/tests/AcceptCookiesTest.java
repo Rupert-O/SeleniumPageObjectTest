@@ -16,7 +16,7 @@ public class AcceptCookiesTest extends BaseTest{
     @Test
     public void acceptCookies(){
         AcceptCookiesPage acceptcookiesPage = new AcceptCookiesPage(driver);
-//        acceptcookiesPage.openPage();
+//        acceptCookiesPage.openPage();
         acceptcookiesPage.waitForPageToBeLoaded();
         acceptcookiesPage.clickAcceptAllCookiesButton();
         Assert.assertTrue(!acceptcookiesPage.cookieConsentPopUp.isDisplayed());

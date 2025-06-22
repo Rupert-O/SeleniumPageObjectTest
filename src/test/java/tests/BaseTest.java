@@ -1,12 +1,17 @@
 package tests;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import pageobjects.AcceptCookiesPage;
+
+import java.time.Duration;
 
 public class BaseTest {
     WebDriver driver;
@@ -32,8 +37,11 @@ public class BaseTest {
         AcceptCookiesTest cookiesWindow = new AcceptCookiesTest(driver);
         AcceptCookiesPage test = new AcceptCookiesPage(driver);
 
-            if(test.checkIfPresent()) {
-                cookiesWindow.acceptCookies();
+        System.out.println("Running acceptCookies Beforemethod");
+
+        if(!driver.findElements(By.xpath("//div[@id=\"cookie-consent\"]")).isEmpty()) {
+                test.clickAcceptAllCookiesButton();
+
             }else{
             System.out.println("No Cookie Pop-Up");
         }
