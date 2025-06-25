@@ -27,7 +27,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//button[@data-testid=\"login-btn\"]")
     protected WebElement logInButton;
 
-
     @Override
     public void waitForPageToBeLoaded() {
         new WebDriverWait(driver, Duration.ofSeconds(10))

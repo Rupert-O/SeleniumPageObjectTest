@@ -33,19 +33,20 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void acceptCookies(){
+    public void acceptCookies() {
         AcceptCookiesTest cookiesWindow = new AcceptCookiesTest(driver);
         AcceptCookiesPage test = new AcceptCookiesPage(driver);
 
         System.out.println("Running acceptCookies Beforemethod");
 
-        if(!driver.findElements(By.xpath("//div[@id=\"cookie-consent\"]")).isEmpty()) {
-                test.clickAcceptAllCookiesButton();
-
-            }else{
+        if (driver.findElements(By.xpath("//div[@id=\"cookie-consent\"]")).isEmpty()) {
             System.out.println("No Cookie Pop-Up");
+            return;
         }
+
+        test.clickAcceptAllCookiesButton();
     }
+
     @AfterClass
     public void teardown(){
         //driver.quit();

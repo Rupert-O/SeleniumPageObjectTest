@@ -16,14 +16,14 @@ public class SearchResultPage extends BasePage{
     }
 
     @FindBy(xpath = "//div[@class=\"cat-product card\"]")
-    public List<WebElement> products;
+    public List<WebElement> products; //TODO: zmienić na private i ddodać metodę getProduct
 
     @FindBy(xpath = "//div[@class=\"cat-list-products\"]/div[@class = \"card cat-list-empty\"]")
-    public WebElement noProductMessage;
+    public WebElement noProductMessage; //TODO: zmienić na private i ddodać metodę getNoProductMessage
 
     @Override
     public void waitForPageToBeLoaded(){
         new WebDriverWait(driver, Duration.ofSeconds(20))
-                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@class=\"cat-product card\"]")));
+                .until(ExpectedConditions.elementToBeClickable(By.xpath("//div[@id=\"category\"]//div[@data-view-type=\"fullList\"]")));
     }
 }
