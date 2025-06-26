@@ -13,7 +13,7 @@ import java.time.Duration;
 public class TopNavigationBarSearchTest extends BaseTest{
 
     @Test
-    public void findExistingProduct(){
+    public void searchExistingProduct(){
         TopNavigationBarPage topNavigationBarPage = new TopNavigationBarPage(driver);
         topNavigationBarPage.searchInput.clear();
         topNavigationBarPage.searchProduct("iPhone");
@@ -22,7 +22,7 @@ public class TopNavigationBarSearchTest extends BaseTest{
         Assert.assertFalse(resultPage.products.isEmpty());
     }
     @Test
-    public void findNonExistingProduct(){
+    public void searchNonExistingProduct(){
         TopNavigationBarPage topNavigationBarPage = new TopNavigationBarPage(driver);
         topNavigationBarPage.searchInput.clear();
         topNavigationBarPage.searchProduct("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
@@ -39,6 +39,7 @@ public class TopNavigationBarSearchTest extends BaseTest{
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(@class, \"mn-item\")]")));
         Assert.assertTrue(resultPage.getWrongSearchQueryPopUp().isDisplayed(), "No notify pop-up");
+        Assert.assertTrue(resultPage.getAlertText().contains("Szukana fraza jest za krótka. Wpisz przynajmniej dwa znaki."), "Incorrect message");
     }
     //div[contains(text(), "Szukana fraza jest za krótka. Wpisz przynajmniej dwa znaki.")]
 }

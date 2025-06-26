@@ -25,8 +25,15 @@ public class SearchResultPage extends BasePage{
     @FindBy(xpath = "//div[contains(@class, \"mn-item\")]")
     private WebElement wrongSearchQueryPopUp;
 
+    @FindBy(xpath = "//div[contains(@class, \"mn-item\")]//div[@class=\"mn-body\"]")
+    private WebElement alertText;
+
     public WebElement getWrongSearchQueryPopUp() {
         return wrongSearchQueryPopUp;
+    }
+
+    public String getAlertText(){
+        return alertText.getText();
     }
 
     @Override
