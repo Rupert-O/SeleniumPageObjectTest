@@ -11,6 +11,7 @@ import java.time.Duration;
 import java.util.List;
 
 public class SearchResultPage extends BasePage{
+
     public SearchResultPage(WebDriver driver){
         super(driver);
     }
@@ -20,6 +21,13 @@ public class SearchResultPage extends BasePage{
 
     @FindBy(xpath = "//div[@class=\"cat-list-products\"]/div[@class = \"card cat-list-empty\"]")
     public WebElement noProductMessage; //TODO: zmienić na private i ddodać metodę getNoProductMessage
+
+    @FindBy(xpath = "//div[contains(@class, \"mn-item\")]")
+    private WebElement wrongSearchQueryPopUp;
+
+    public WebElement getWrongSearchQueryPopUp() {
+        return wrongSearchQueryPopUp;
+    }
 
     @Override
     public void waitForPageToBeLoaded(){

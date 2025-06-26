@@ -28,12 +28,12 @@ public class BaseTest {
         driver.get("https://www.morele.net/");
     }
 
-    @BeforeMethod
+    @BeforeMethod(alwaysRun = true)
     public void acceptCookies() {
         AcceptCookiesTest cookiesWindow = new AcceptCookiesTest(driver);
         AcceptCookiesPage test = new AcceptCookiesPage(driver);
 
-        System.out.println("Running acceptCookies Beforemethod");
+        System.out.println("Running acceptCookies >>Before method<<");
 
         if (driver.findElements(By.xpath("//div[@id=\"cookie-consent\"]")).isEmpty()) {
             System.out.println("No Cookie Pop-Up");
