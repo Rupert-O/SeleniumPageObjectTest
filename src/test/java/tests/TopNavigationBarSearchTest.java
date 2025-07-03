@@ -41,5 +41,4 @@ public class TopNavigationBarSearchTest extends BaseTest{
         Assert.assertTrue(resultPage.getWrongSearchQueryPopUp().isDisplayed(), "No notify pop-up");
         Assert.assertTrue(resultPage.getAlertText().contains("Szukana fraza jest za krótka. Wpisz przynajmniej dwa znaki."), "Incorrect message");
     }
-    //div[contains(text(), "Szukana fraza jest za krótka. Wpisz przynajmniej dwa znaki.")]
 }

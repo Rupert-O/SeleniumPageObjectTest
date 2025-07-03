@@ -1,0 +1,9 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="SklepInternetowySuite">
+    <test name="WyszukiwanieProduktowTest">
+        <classes>
+            <class name="tests.TopNavigationBarSearchTest" />
+            <class name="tests.LoginTest" />
+        </classes>
+    </test>
+</suite>
