@@ -17,16 +17,24 @@ public class SearchResultPage extends BasePage{
     }
 
     @FindBy(xpath = "//div[@class=\"cat-product card\"]")
-    public List<WebElement> products; //TODO: zmienić na private i ddodać metodę getProduct
+    private List<WebElement> products;
 
     @FindBy(xpath = "//div[@class=\"cat-list-products\"]/div[@class = \"card cat-list-empty\"]")
-    public WebElement noProductMessage; //TODO: zmienić na private i ddodać metodę getNoProductMessage
+    private WebElement noProductMessage;
 
     @FindBy(xpath = "//div[contains(@class, \"mn-item\")]")
     private WebElement wrongSearchQueryPopUp;
 
     @FindBy(xpath = "//div[contains(@class, \"mn-item\")]//div[@class=\"mn-body\"]")
     private WebElement alertText;
+
+    public List<WebElement> getProducts() {
+        return products;
+    }
+
+    public WebElement getNoProductMessage() {
+        return noProductMessage;
+    }
 
     public WebElement getWrongSearchQueryPopUp() {
         return wrongSearchQueryPopUp;

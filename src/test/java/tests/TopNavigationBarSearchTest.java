@@ -19,7 +19,7 @@ public class TopNavigationBarSearchTest extends BaseTest{
         topNavigationBarPage.searchProduct("iPhone");
         SearchResultPage resultPage = new SearchResultPage(driver);
         resultPage.waitForPageToBeLoaded();
-        Assert.assertFalse(resultPage.products.isEmpty());
+        Assert.assertFalse(resultPage.getProducts().isEmpty());
     }
     @Test
     public void searchNonExistingProduct(){
@@ -28,7 +28,7 @@ public class TopNavigationBarSearchTest extends BaseTest{
         topNavigationBarPage.searchProduct("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         SearchResultPage resultPage = new SearchResultPage(driver);
         resultPage.waitForPageToBeLoaded();
-        Assert.assertTrue(resultPage.noProductMessage.isDisplayed());
+        Assert.assertTrue(resultPage.getNoProductMessage().isDisplayed());
     }
     @Test
     public void searchNullValue(){
