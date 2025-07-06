@@ -56,6 +56,7 @@ public class TopNavigationBarPage extends BasePage{
         searchButton.click();
     }
     public SearchResultPage searchProduct(String phrase){
+        searchInput.clear();
         insertStringToSearchInput(phrase);
         clickSearchButton();
         return new SearchResultPage(driver);

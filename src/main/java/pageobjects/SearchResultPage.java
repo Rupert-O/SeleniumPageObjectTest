@@ -28,6 +28,9 @@ public class SearchResultPage extends BasePage{
     @FindBy(xpath = "//div[contains(@class, \"mn-item\")]//div[@class=\"mn-body\"]")
     private WebElement alertText;
 
+    @FindBy(xpath = "//main[@id=\"main_content\"]//div[@data-list-name=\"search\"]//h2/a")
+    private List<WebElement> productsTitles;
+
     public List<WebElement> getProducts() {
         return products;
     }
@@ -44,6 +47,9 @@ public class SearchResultPage extends BasePage{
         return alertText.getText();
     }
 
+    public List<WebElement> getProductsTitles() {
+        return productsTitles;
+    }
     @Override
     public void waitForPageToBeLoaded(){
         new WebDriverWait(driver, Duration.ofSeconds(20))
