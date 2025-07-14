@@ -7,7 +7,8 @@ import pageobjects.LoginPage;
 public class LoginTest extends BaseTest{
     String VALID_USER_LOGIN = "108916054";
     String VALID_USER_PASSWORD = "Haslo111";
-
+//TODO: fix login test
+    //TODO: add few login tests
     @Test
     public void successfulLoginTest() {
         try {
