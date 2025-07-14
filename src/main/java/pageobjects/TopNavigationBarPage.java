@@ -5,9 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 
 public class TopNavigationBarPage extends BasePage{
@@ -24,6 +26,11 @@ public class TopNavigationBarPage extends BasePage{
 
     @FindBy(xpath = "//header//ul[@class= \"md-list-collection\"]")
     private List<WebElement> categoriesList;
+
+    @FindBy(name = "d")
+    private WebElement categoriesDropdown;
+
+    private final List<String> expectedValues = Arrays.asList("Wszystkie działy", "Komputery", "Telewizory i audio", "Foto i kamery", "AGD", "Smartfony i smartwatche", "Biuro i firma", "Gaming", "Laptopy", "Sport i turystyka", "Małe AGD", "Dom i ogród", "Podzespoły komputerowe", "Zabawki i dziecko", "Uroda i zdrowie", "Supermarket");
 
     @FindBy(xpath = "//header//button[@type=\"submit\"]")
     private WebElement searchButton;
@@ -49,6 +56,10 @@ public class TopNavigationBarPage extends BasePage{
     public void clickSearchCategoriesDropdownButton(){
         searchCategoriesDropdownButton.click();
     }
+    public Select getCategoriesDropdown(){
+        return new Select(categoriesDropdown);
+    }
+    public List<String> getExpectedValues(){return expectedValues;}
     public void insertStringToSearchInput(String phrase){
         searchInput.sendKeys(phrase);
     }

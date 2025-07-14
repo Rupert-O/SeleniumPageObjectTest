@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -9,6 +10,7 @@ import pageobjects.SearchResultPage;
 import pageobjects.TopNavigationBarPage;
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 public class TopNavigationBarSearchTest extends BaseTest{
 
@@ -28,7 +30,7 @@ public class TopNavigationBarSearchTest extends BaseTest{
         topNavigationBarPage.searchProduct("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         SearchResultPage resultPage = new SearchResultPage(driver);
         resultPage.waitForPageToBeLoaded();
-        Assert.assertTrue(resultPage.getNoProductMessage().isDisplayed());
+        Assert.assertTrue(resultPage.getNoProductMessage().isDisplayed());//TODO: dodaj do wszytkich asercji komunikat błedu
     }
     @Test
     public void searchNullValue(){
@@ -40,5 +42,18 @@ public class TopNavigationBarSearchTest extends BaseTest{
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//div[contains(@class, \"mn-item\")]")));
         Assert.assertTrue(resultPage.getWrongSearchQueryPopUp().isDisplayed(), "No notify pop-up");
         Assert.assertTrue(resultPage.getAlertText().contains("Szukana fraza jest za krótka. Wpisz przynajmniej dwa znaki."), "Incorrect message");
+    }
+    @Test
+    public void verifyCompletenessOfCategoryDropdown(){
+        TopNavigationBarPage topNavigationBarPage = new TopNavigationBarPage(driver);
+        ArrayList<String> actualValues = new ArrayList<>();
+
+        for(WebElement e : topNavigationBarPage.getCategoriesDropdown().getOptions()){
+            String textValue = e.getText();
+            actualValues.add(textValue);
+            //System.out.println(textValue);
+        }
+        Assert.assertEquals(topNavigationBarPage.getExpectedValues(), actualValues, "Dropdown categories values incomplete");
+
     }
 }
